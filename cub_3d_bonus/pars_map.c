@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:42:36 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/29 22:44:25 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/29 23:05:05 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	pars_character(char *line, int y, t_mlx *m)
 	while (line[i])
 	{
 		if (line[i] == '1' || line[i] == '0' || line[i] == 'X'
-			|| start_pos(line[i]))
+			|| line[i] == 'D' ||start_pos(line[i]))
 		{
 			if (start_pos(line[i]))
 				get_angle(line[i], y, i, m);

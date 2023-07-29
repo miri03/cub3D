@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/28 17:33:14 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/29 22:43:38 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,6 @@ void	init(t_mlx	*m)
 	m->key.d = 0;
 	m->key.left = 0;
 	m->key.right = 0;
-	if (calc_length_x(m->map.x_elements_nb)
-		< calc_length_y(m->map.y_elements_nb))
-		m->map.tile = calc_length_x(m->map.x_elements_nb);
-	else
-		m->map.tile = calc_length_y(m->map.y_elements_nb);
-	m->p.x = 2 * m->map.tile + (m->map.tile / 2);
-	m->p.y = 2 * m->map.tile + (m->map.tile / 2);
 	m->p.radius = 5;
 	m->p.turn = 0;
 	m->p.turn = 1;
@@ -92,11 +85,6 @@ int	main(int argc, char **argv)
 			error_mess("identifier missing\n");
 		map(argv[1], start, m);
 		m->map.x_elements_nb = max_len(argv[1], start);
-		printf("\npath->%s %s %s %s\ncolors->%d %d\nlen->%d height->%d\n",
-			m->t[0].path, m->t[1].path, m->t[2].path, m->t[3].path,
-			m->map.floor_color, m->map.sky_color, m->map.x_elements_nb,
-			m->map.y_elements_nb);
-		printf("%f\n", m->p.angle);
 		m->rays = malloc(NB_RAYS * sizeof(t_ray));
 		m->mlx_ptr = mlx_init();
 		init(m);

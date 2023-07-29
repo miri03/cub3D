@@ -1,14 +1,14 @@
-NO ./textures/lain.xpm
-SO ./textures/blue_wall.xpm
-EA ./textures/north.xpm
-WE ./textures/shrek.xpm
+NO ./textures/sailor1.xpm
+SO ./textures/sailor3.xpm
+EA ./textures/sailor0.xpm
+WE ./textures/sailor2.xpm
 
 C 147,202,237
 F 255,255,255
 
 11111111111111111
 1000S000000000001
-10100000100000101
+10100D00100000101
 10000000000000001
 10001000100010001
 10101010001010101

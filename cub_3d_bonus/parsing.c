@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:05:01 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/29 23:04:13 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/29 22:36:19 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,26 @@ void	map_starting(int fd, int start)
 	}
 	free(line);
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	int		fd;
+// 	t_mlx	*m;
+// 	int		start;
+
+// 	if (argc == 2)
+// 	{
+// 		m = malloc(sizeof(t_mlx));
+// 		init(m);
+// 		fd = open_map(argv[1]);
+// 		start = textures(fd, m);
+// 		height_len(fd, m);
+// 		if (!m->t[0].path || !m->t[1].path || !m->t[2].path || !m->t[3].path
+// 			|| m->map.sky_color == -1 || m->map.floor_color == -1)
+// 			error_mess("identifier missing\n");
+// 		map(argv[1], start, m);
+// 		m->map.x_elements_nb = max_len(argv[1], start);
+// 	}
+// 	else
+// 		error_mess("no\n");
+// }

@@ -6,18 +6,31 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:16:14 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/26 22:47:25 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/29 19:41:28 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	choose_texture(t_mlx *m)
+{
+	if (m->rays[m->ray].hit == HORIZONTAL && m->rays[m->ray].down == -1)
+		return (NORTH);
+	else if (m->rays[m->ray].hit == HORIZONTAL && m->rays[m->ray].down == 1)
+		return (SOUTH);
+	else if (m->rays[m->ray].hit == VERTICAL && m->rays[m->ray].right == -1)
+		return (WEST);
+	else if (m->rays[m->ray].hit == VERTICAL && m->rays[m->ray].right == 1)
+		return (EAST);
+	return (-1);
+}
 
 void	open_door_frames(t_mlx *m)
 {
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 12)
 	{
 		m->door.frames[i].xpm_ptr = mlx_xpm_file_to_image(m->mlx_ptr,
 				m->door.frames[i].path, &m->door.frames[i].wt,
