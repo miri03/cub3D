@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 15:16:33 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 15:40:16 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char **argv)
 			printf("%s\n", m->map.map[i]);
 			i++;
 		}
+		printf("%d\n", m->map.x_elements_nb);
 		m->rays = malloc(NB_RAYS * sizeof(t_ray));
 		m->mlx_ptr = mlx_init();
 		init(m);
