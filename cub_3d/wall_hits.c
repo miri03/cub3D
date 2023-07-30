@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   wall_hits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:38:11 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 15:04:03 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 19:21:38 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	set_inter(t_mlx *m, double yin, double xin, int mode)
+{
+	if (mode == HORIZONTAL)
+	{
+		m->rays[m->ray].x_horz_wall = xin;
+		m->rays[m->ray].y_horz_wall = yin;
+	}
+	else
+	{
+		m->rays[m->ray].x_vert_wall = xin;
+		m->rays[m->ray].y_vert_wall = yin;
+	}
+}
 
 double	calc_horz_steps(t_mlx *m, double angle, double *xstep, double *ystep)
 {
@@ -50,8 +64,7 @@ void	horizontal_wall_inter(t_mlx *m, double angle)
 		if (m->map.map[(int)((yin + i) / m->map.tile)][(int)(xin / m->map.tile)]
 		== '1')
 		{
-			m->rays[m->ray].x_horz_wall = xin;
-			m->rays[m->ray].y_horz_wall = yin;
+			set_inter(m, yin, xin, HORIZONTAL);
 			return ;
 		}
 		xin += xstep;
@@ -97,8 +110,7 @@ void	vertical_wall_inter(t_mlx *m, double angle)
 		if (m->map.map[(int)(yin / m->map.tile)][(int)((xin + i) / m->map.tile)]
 		== '1')
 		{
-			m->rays[m->ray].x_vert_wall = xin;
-			m->rays[m->ray].y_vert_wall = yin;
+			set_inter(m, yin, xin, VERTICAL);
 			return ;
 		}
 		xin += xstep;

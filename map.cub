@@ -4,7 +4,7 @@ EA ./textures/sailor0.xpm
 	WE 	./textures/sailor2.xpm	
 
 C	 147,202,237
-F 255,255,255
+F 255,,255,255
 
 11111111111111111
 10000000000000001
