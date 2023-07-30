@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   horizontal_wall_hit.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:38:11 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/26 22:40:45 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/30 15:03:19 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	horizontal_wall_inter(t_mlx *m, double angle)
 	xin = m->p.x + ((yin - m->p.y) / tan(angle));
 	if (isnan(xin))
 		xin = 0;
-	while ((yin >= 0 && yin <= (m->map.tile * m->map.y_elements_nb))
-		&& (xin >= 0 && xin <= (m->map.tile * m->map.x_elements_nb)))
+	while ((yin >= 0 && yin < (m->map.tile * m->map.y_elements_nb))
+		&& (xin >= 0 && xin < (m->map.tile * m->map.x_elements_nb)))
 	{
 		if (hit_horz_obstacle(m, i, yin, xin))
 		{

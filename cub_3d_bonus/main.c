@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 22:59:39 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 15:16:33 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 	t_mlx	*m;
 	int		fd;
 	int		start;
+	int	i = 0;
 
 	if (argc == 2)
 	{
@@ -56,6 +57,11 @@ int	main(int argc, char **argv)
 			error_mess("identifier missing\n");
 		map(argv[1], start, m);
 		m->map.x_elements_nb = max_len(argv[1], start);
+		while (m->map.map[i])
+		{
+			printf("%s\n", m->map.map[i]);
+			i++;
+		}
 		m->rays = malloc(NB_RAYS * sizeof(t_ray));
 		m->mlx_ptr = mlx_init();
 		init(m);

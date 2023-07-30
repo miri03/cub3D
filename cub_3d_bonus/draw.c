@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:35:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/28 21:22:59 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/30 15:05:58 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	draw_map2(int j, t_mlx *m, int size)
 	while (i < m->map.x_elements_nb)
 	{
 		if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
-			|| m->map.map[j][i] == 'x')
+			|| m->map.map[j][i] == 'X')
 			draw_square(i * size, j * size, m, 0xFFFFFFFF);
 		else
 		{

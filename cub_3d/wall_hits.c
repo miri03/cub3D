@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall_hits.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:38:11 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/28 21:32:12 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/30 15:04:03 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	horizontal_wall_inter(t_mlx *m, double angle)
 	xin = m->p.x + ((yin - m->p.y) / tan(angle));
 	if (isnan(xin))
 		xin = 0;
-	while ((yin >= 0 && yin <= (m->map.tile * m->map.y_elements_nb))
-		&& (xin >= 0 && xin <= (m->map.tile * m->map.x_elements_nb)))
+	while ((yin >= 0 && yin < (m->map.tile * m->map.y_elements_nb))
+		&& (xin >= 0 && xin < (m->map.tile * m->map.x_elements_nb)))
 	{
 		if (m->map.map[(int)((yin + i) / m->map.tile)][(int)(xin / m->map.tile)]
 		== '1')
@@ -91,8 +91,8 @@ void	vertical_wall_inter(t_mlx *m, double angle)
 	yin = m->p.y + ((xin - m->p.x) * tan(angle));
 	if (isnan(yin))
 		yin = 0;
-	while ((yin >= 0 && yin <= (m->map.tile * m->map.y_elements_nb))
-		&& (xin >= 0 && xin <= (m->map.tile * m->map.x_elements_nb)))
+	while ((yin >= 0 && yin < (m->map.tile * m->map.y_elements_nb))
+		&& (xin >= 0 && xin < (m->map.tile * m->map.x_elements_nb)))
 	{
 		if (m->map.map[(int)(yin / m->map.tile)][(int)((xin + i) / m->map.tile)]
 		== '1')
