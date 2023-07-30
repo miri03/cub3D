@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 15:40:16 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 18:51:34 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	renderer(void *t)
 
 	m = t;
 	mlx_clear_window(m->mlx_ptr, m->win_ptr);
-	m->map.map_img = mlx_new_image(m->mlx_ptr, m->map.x_elements_nb
+	m->map.map_img = mlx_new_image(m->mlx_ptr, (m->map.x_elements_nb - 1)
 			* m->map.tile,
-			m->map.y_elements_nb * m->map.tile);
+			(m->map.y_elements_nb - 1) * m->map.tile);
 	m->addr = mlx_get_data_addr(m->map.map_img, &m->bits_per_pixel,
 			&m->line_length, &m->endian);
 	draw_map(m);

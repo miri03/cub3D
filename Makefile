@@ -6,7 +6,7 @@ CC		= cc
 
 CFLAGS	= -Wall -Wextra -Werror -pthread
 
-LFLAGS	=	-lmlx -framework OpenGL -framework AppKit #-fsanitize=address -g
+LFLAGS	=	-lmlx -framework OpenGL -framework AppKit #-fsanitize=address -g3
 
 NAME	= cub3D
 

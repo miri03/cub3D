@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:35:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 15:31:09 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 19:04:30 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	draw_square(int x, int y, t_mlx *m, int color)
 		j = y;
 		while (j < size + y)
 		{
+			// printf("%c\n", m->map.map[i / m->map.tile][j / m->map.tile]);
 			my_mlx_pixel_put(m, i, j, color);
 			j++;
 		}
@@ -78,7 +79,7 @@ void	draw_map2(int j, t_mlx *m, int size)
 	i = (m->p.x / m->map.tile) - 3;
 	if (i < 0)
 		i = 0;
-	while (i < m->map.x_elements_nb)
+	while (i < m->map.x_elements_nb - 1)
 	{
 		if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
 			|| m->map.map[j][i] == 'X')
@@ -94,16 +95,34 @@ void	draw_map2(int j, t_mlx *m, int size)
 	}
 }
 
+void	my_mlx_pixel_put2(t_mlx *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length
+		+ x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
+
 void	draw_map(t_mlx *m)
 {
 	int	j;
+	int	i;
 	int	size;
 
+	size = m->map.tile;
+	j = 0;
+	while (j < (m->map.y_elements_nb - 1) * size)
+	{
+		i = 0;
+		while (i < (m->map.x_elements_nb - 1) * size)
+			my_mlx_pixel_put2(m, i++, j, 0xFFFFFFFF);
+		j++;
+	}
 	j = (m->p.y / m->map.tile) - 3;
 	if (j < 0)
 		j = 0;
-	size = m->map.tile;
-	while (j < m->map.y_elements_nb)
+	while (j < m->map.y_elements_nb - 1)
 	{
 		draw_map2(j, m, size);
 		j++;
