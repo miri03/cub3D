@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:42:36 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/30 15:38:13 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 16:55:13 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	pars_character(char *line, int y, t_mlx *m)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '1' || line[i] == '0' || line[i] == 'X'
-			|| line[i] == 'D' ||start_pos(line[i]))
+		if (line[i] == '1' || line[i] == '0' || line[i] == 'X' || line[i] == 'D'
+			|| start_pos(line[i]))
 		{
 			if (start_pos(line[i]))
 				get_angle(line[i], y, i, m);
@@ -82,10 +82,11 @@ void	valid_line(char *line, t_mlx *m, int index)
 	i++;
 	while (line[i])
 	{
-		if ((line[i] == '0' || start_pos(line[i]))  && (m->map.map[index - 1][i] == 'X'
-				|| m->map.map[index + 1][i] == 'X'))
+		if ((line[i] == '0' || line[i] == 'D' || start_pos(line[i])) && (m->map.map[index
+				- 1][i] == 'X' || m->map.map[index + 1][i] == 'X'))
 			error_mess("not surrounded by walls\n");
-		if ((line[i] == '0' || start_pos(line[i])) && (line[i - 1] == 'X' || line[i + 1] == 'X'))
+		if ((line[i] == '0' || line[i] == 'D' || start_pos(line[i])) && (line[i - 1] == 'X'
+				|| line[i + 1] == 'X'))
 			error_mess("Not surrounded by walls\n");
 		i++;
 	}
