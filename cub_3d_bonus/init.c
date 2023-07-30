@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 20:19:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 22:58:15 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 20:23:46 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,6 @@ void	init(t_mlx *m)
 	init_keys(m);
 	init_player(m);
 	m->map.tile = 50;
-	// m->p.x = 2 * m->map.tile + (m->map.tile / 2);
-	// m->p.y = 2 * m->map.tile + (m->map.tile / 2);
-	// m->p.angle = 270 * (M_PI / 180);
-	// m->t[SOUTH].path = "./textures/sailor3.xpm";
-	// m->t[NORTH].path = "./textures/sailor1.xpm";
-	// m->t[WEST].path = "./textures/sailor2.xpm";
-	// m->t[EAST].path = "./textures/sailor0.xpm";
 	m->weapon.nb_frame = 7;
 	init_weapon_frames(m);
 	init_door_frames(m);

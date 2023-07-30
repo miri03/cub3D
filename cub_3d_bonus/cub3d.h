@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:38:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 22:59:22 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 20:26:51 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		red_cross(void);
 
 /*----------------mlx-----------------*/
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
+void	my_mlx_pixel_put2(t_mlx *data, int x, int y, int color);
 int		my_mlx_pixel_get(t_texture *t, int x, int y);
 
 /*--------------textures--------------*/

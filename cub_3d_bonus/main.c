@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 18:51:34 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/30 22:24:44 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(int argc, char **argv)
 	t_mlx	*m;
 	int		fd;
 	int		start;
-	int	i = 0;
 
 	if (argc == 2)
 	{
@@ -57,16 +56,10 @@ int	main(int argc, char **argv)
 			error_mess("identifier missing\n");
 		map(argv[1], start, m);
 		m->map.x_elements_nb = max_len(argv[1], start);
-		while (m->map.map[i])
-		{
-			printf("%s\n", m->map.map[i]);
-			i++;
-		}
-		printf("%d\n", m->map.x_elements_nb);
 		m->rays = malloc(NB_RAYS * sizeof(t_ray));
 		m->mlx_ptr = mlx_init();
 		init(m);
-		m->win_ptr =  mlx_new_window(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
+		m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
 		weapon(m);
 		mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
 		mlx_hook(m->win_ptr, 2, 0, keys_down, m);

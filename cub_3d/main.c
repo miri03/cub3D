@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 22:43:38 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/30 22:21:48 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,10 @@ void	renderer(void *t)
 	m = t;
 	l = m->map.tile * SCALE_FACTOR;
 	mlx_clear_window(m->mlx_ptr, m->win_ptr);
-	m->map.map_img = mlx_new_image(m->mlx_ptr, l * m->map.x_elements_nb,
-			l * m->map.y_elements_nb);
-	m->addr = mlx_get_data_addr(m->map.map_img, &m->bits_per_pixel,
-			&m->line_length, &m->endian);
-	cast_rays(m);
 	m->img_ptr = mlx_new_image(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	m->addr = mlx_get_data_addr(m->img_ptr, &m->bits_per_pixel,
 			&m->line_length, &m->endian);
+	cast_rays(m);
 	draw_walls(m);
 	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, m->img_ptr, 0, 0);
 	mlx_destroy_image(m->mlx_ptr, m->img_ptr);
