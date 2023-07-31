@@ -17,7 +17,7 @@ int	open_map(char *map)
 	int	len;
 	int	fd;
 
-	fd = open(map, O_RDWR);
+	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr_fd(MAG, 2);

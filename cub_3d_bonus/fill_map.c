@@ -35,7 +35,7 @@ char	*put_line(char *line, t_mlx *m)
 	result = (char *)malloc(sizeof(char) * (m->map.x_elements_nb + 1));
 	while (line[i] || m->map.x_elements_nb > i)
 	{
-		if (line[i] == ' ')
+		if (line[i] == ' ' || line[i] == '\t')
 			result[i] = 'X';
 		else if (line[i] == '\n')
 		{
@@ -66,7 +66,7 @@ char	*last(char *line, t_mlx *m)
 		if (line[i] == ' ' || line[i] == '\t')
 			result[i] = 'X';
 		else if (line[i] == '\n')
-			error_mess("empty line in the map3\n");
+			error_mess("empty line in the map\n");
 		else
 			result[i] = line[i];
 		i++;

@@ -51,6 +51,7 @@ void	check_rgb_uti(char **rgb, int i)
 
 	while (rgb[i])
 	{
+		printf("->%s\n", rgb[i]);
 		j = 0;
 		while ((rgb[i][j] && (rgb[i][j] == ' ' || rgb[i][j] == '\t')) ||
 				((rgb[i][j] && i == 0) && (rgb[i][j] == ' ' || rgb[i][j] == '\t'
@@ -62,6 +63,7 @@ void	check_rgb_uti(char **rgb, int i)
 			free(rgb[i]);
 			rgb[i] = n_rgb;
 		}
+		printf("=>%s\n", rgb[i]);
 		tt = ft_space_split(rgb[i], ' ', '\t');
 		if (tab_len(tt) != 1)
 			error_mess("Space in RGB\n");
@@ -83,6 +85,7 @@ int	check_rgb(char *str)
 	if (str[ft_strlen(str) - 2] == ',')
 		error_mess("RGB invalid\n");
 	rgb = ft_space_split(str, ',', '\n');
+	// printf("%d\n", tab_len(rgb));
 	check_rgb_uti(rgb, i);
 	while (rgb[i])
 	{

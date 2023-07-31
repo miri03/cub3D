@@ -45,7 +45,7 @@ void	height_len(int fd, t_mlx *m)
 	while (line)
 	{
 		if (empty(line))
-			error_mess("empty line in the map4\n");
+			error_mess("!\n");
 		if ((int)ft_strlen(line) - n_line(line) > m->map.x_elements_nb)
 			m->map.x_elements_nb = ft_strlen(line) - n_line(line);
 		m->map.y_elements_nb++;
