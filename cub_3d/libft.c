@@ -12,6 +12,23 @@
 
 #include "parsing.h"
 
+void	comma(char *str)
+{
+	int	i;
+	int	comma;
+
+	i = 0;
+	comma = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			comma++;
+		i++;
+	}
+	if (comma != 2)
+		error_mess("RGB invalid\n");
+}
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	count;
@@ -52,6 +69,8 @@ unsigned long	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
+		if (ft_strlen(str) == 1)
+			error_mess("error RGB\n");
 		if (str[i] == '-')
 			sign *= -1;
 		i++;
@@ -59,32 +78,7 @@ unsigned long	ft_atoi(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		result = result * 10 + (str[i] - '0');
-		if (result > 9223372036854775807 && sign == 1)
-			return (-1);
-		if (result > 9223372036854775807 && sign == -1)
-			return (0);
 		i++;
 	}
 	return ((result * sign));
 }
-
-// char	*ft_strdup(const char *s1)
-// {
-// 	int		i;
-// 	char	*ptr;
-
-// 	i = 0;
-// 	ptr = NULL;
-// 	if (!s1)
-// 		return (NULL);
-// 	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-// 	if (ptr == NULL)
-// 		return (NULL);
-// 	while (s1[i] != '\0')
-// 	{
-// 		ptr[i] = s1[i];
-// 		i++;
-// 	}
-// 	ptr[i] = '\0';
-// 	return (ptr);
-// }

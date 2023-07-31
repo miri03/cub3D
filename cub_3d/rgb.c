@@ -79,11 +79,10 @@ int	check_rgb(char *str)
 	unsigned long	color[3];
 
 	i = 0;
+	comma(str);
 	if (str[ft_strlen(str) - 2] == ',')
 		error_mess("RGB invalid\n");
 	rgb = ft_space_split(str, ',', '\n');
-	if (tab_len(rgb) != 3)
-		error_mess("RGB invalid\n");
 	check_rgb_uti(rgb, i);
 	while (rgb[i])
 	{
@@ -93,6 +92,8 @@ int	check_rgb(char *str)
 			error_mess("RGB invalid\n");
 		i++;
 	}
+	if (i != 3)
+		error_mess("RGB invalid\n");
 	free_tab(rgb);
 	return (color[0] * 256 * 256 + color[1] * 256 + color[2]);
 }

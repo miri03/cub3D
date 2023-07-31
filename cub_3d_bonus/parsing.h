@@ -58,6 +58,7 @@ void			init_pars(t_mlx *m);
 int				open_map(char *map);
 int				n_line(char *line);
 void			map_starting(int fd, int start);
+void			comma(char *str);
 
 // ----- libft ----- //
 char			**ft_split(char const *s, char c);

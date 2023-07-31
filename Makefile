@@ -4,9 +4,9 @@ BSRCS	= $(wildcard ./cub_3d_bonus/*.c)
 
 CC		= cc
 
-CFLAGS	= -Wall -Wextra -Werror #-fsanitize=address -g3
-
-LFLAGS	=	-lmlx -framework OpenGL -framework AppKit 
+CFLAGS	= -Wall -Wextra -Werror -pthread
+LFLAGS	=	-L /usr/X11/lib -lmlx -framework OpenGL -framework AppKit
+# LFLAGS	=	-lmlx -framework OpenGL -framework AppKit #-fsanitize=address -g3
 
 NAME	= cub3D
 

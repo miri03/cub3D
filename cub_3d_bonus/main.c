@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 22:24:44 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/30 18:51:34 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,35 @@ void	renderer(void *t)
 	mlx_destroy_image(m->mlx_ptr, m->map.map_img);
 }
 
+void	pars(t_mlx *m, char **argv)
+{
+	int	fd;
+	int	start;
+
+	fd = open_map(argv[1]);
+	start = textures(fd, m);
+	height_len(fd, m);
+	if (!m->t[0].path || !m->t[1].path || !m->t[2].path || !m->t[3].path
+		|| m->map.sky_color == -1 || m->map.floor_color == -1)
+		error_mess("identifier missing\n");
+	map(argv[1], start, m);
+	m->map.x_elements_nb = max_len(argv[1], start);
+}
+
 int	main(int argc, char **argv)
 {
 	t_mlx	*m;
-	int		fd;
-	int		start;
 
 	if (argc == 2)
 	{
 		m = malloc(sizeof(t_mlx));
 		init_pars(m);
-		fd = open_map(argv[1]);
-		start = textures(fd, m);
-		height_len(fd, m);
-		if (!m->t[0].path || !m->t[1].path || !m->t[2].path || !m->t[3].path
-			|| m->map.sky_color == -1 || m->map.floor_color == -1)
-			error_mess("identifier missing\n");
-		map(argv[1], start, m);
-		m->map.x_elements_nb = max_len(argv[1], start);
+		pars(m, argv);
 		m->rays = malloc(NB_RAYS * sizeof(t_ray));
 		m->mlx_ptr = mlx_init();
 		init(m);
-		m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
+		m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH,
+				WIN_HEIGHT, "cub3d");
 		weapon(m);
 		mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
 		mlx_hook(m->win_ptr, 2, 0, keys_down, m);

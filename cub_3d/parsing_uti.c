@@ -45,7 +45,7 @@ void	height_len(int fd, t_mlx *m)
 	while (line)
 	{
 		if (empty(line))
-			error_mess("empty line in the map\n");
+			error_mess("!\n");
 		if ((int)ft_strlen(line) - n_line(line) > m->map.x_elements_nb)
 			m->map.x_elements_nb = ft_strlen(line) - n_line(line);
 		m->map.y_elements_nb++;
@@ -75,8 +75,6 @@ void	max_len_uti(char *line, int *max)
 
 int	max_len(char *file_path, int start)
 {
-	int		len;
-	int		i;
 	char	*line;
 	int		fd;
 	int		max;
@@ -89,8 +87,6 @@ int	max_len(char *file_path, int start)
 	line = get_next_line(fd);
 	while (line)
 	{
-		i = 0;
-		len = 0;
 		max_len_uti(line, &max);
 		free(line);
 		line = get_next_line(fd);

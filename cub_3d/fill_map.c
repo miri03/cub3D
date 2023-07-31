@@ -66,7 +66,7 @@ char	*last(char *line, t_mlx *m)
 		if (line[i] == ' ' || line[i] == '\t')
 			result[i] = 'X';
 		else if (line[i] == '\n')
-			error_mess("empty line in the map\n");
+			error_mess("empty line in the map1\n");
 		else
 			result[i] = line[i];
 		i++;
@@ -109,11 +109,7 @@ void	fill_map(int fd, t_mlx *m)
 void	map(char *file_path, int start, t_mlx *m)
 {
 	int	fd;
-	int	index;
-	int	i;
 
-	i = 0;
-	index = 0;
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		error_mess("open() failed\n");

@@ -33,10 +33,10 @@ void	draw_player(double x, double y, t_mlx *t, int size)
 void	renderer(void *t)
 {
 	t_mlx	*m;
-	int		l;
+	// int		l;
 
 	m = t;
-	l = m->map.tile * SCALE_FACTOR;
+	// l = m->map.tile * SCALE_FACTOR;
 	mlx_clear_window(m->mlx_ptr, m->win_ptr);
 	m->img_ptr = mlx_new_image(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	m->addr = mlx_get_data_addr(m->img_ptr, &m->bits_per_pixel,
