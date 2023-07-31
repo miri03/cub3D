@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:53:00 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/26 23:03:28 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/31 19:09:52 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	keys_down(int key, void	*t)
 	}
 	else
 		keys_down2(key, m);
-	move(m);
 	return (0);
 }
 

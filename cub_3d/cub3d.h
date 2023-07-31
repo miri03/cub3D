@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:38:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 22:51:03 by meharit          ###   ########.fr       */
+/*   Updated: 2023/07/31 19:05:08 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 int		my_mlx_pixel_get(t_mlx *data, int x, int y, int mode);
 
 /*--------------textures--------------*/
-void	put_texture_to_wall(t_mlx *m, double wall_height, int mode);
 void	open_textures(t_mlx *m);
 
 #endif

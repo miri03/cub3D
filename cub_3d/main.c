@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 22:21:48 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/31 19:12:47 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ void	draw_player(double x, double y, t_mlx *t, int size)
 void	renderer(void *t)
 {
 	t_mlx	*m;
-	// int		l;
 
 	m = t;
-	// l = m->map.tile * SCALE_FACTOR;
 	mlx_clear_window(m->mlx_ptr, m->win_ptr);
 	m->img_ptr = mlx_new_image(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	m->addr = mlx_get_data_addr(m->img_ptr, &m->bits_per_pixel,
@@ -69,28 +67,25 @@ int	main(int argc, char **argv)
 	int		fd;
 	int		start;
 
-	if (argc == 2)
-	{
-		m = malloc(sizeof(t_mlx));
-		init_pars(m);
-		fd = open_map(argv[1]);
-		start = textures(fd, m);
-		height_len(fd, m);
-		if (!m->t[0].path || !m->t[1].path || !m->t[2].path || !m->t[3].path
-			|| m->map.sky_color == -1 || m->map.floor_color == -1)
-			error_mess("identifier missing\n");
-		map(argv[1], start, m);
-		m->map.x_elements_nb = max_len(argv[1], start);
-		m->rays = malloc(NB_RAYS * sizeof(t_ray));
-		m->mlx_ptr = mlx_init();
-		init(m);
-		m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
-		mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
-		mlx_hook(m->win_ptr, 2, 0, keys_down, m);
-		mlx_loop_hook(m->mlx_ptr, move, m);
-		mlx_hook(m->win_ptr, 3, 0, keys_up, m);
-		mlx_loop(m->mlx_ptr);
-	}
-	else
-		error_mess("no\n");
+	if (argc != 2)
+		error_mess("wrong number of arguments\n");
+	m = malloc(sizeof(t_mlx));
+	init_pars(m);
+	fd = open_map(argv[1]);
+	start = textures(fd, m);
+	height_len(fd, m);
+	if (!m->t[0].path || !m->t[1].path || !m->t[2].path || !m->t[3].path
+		|| m->map.sky_color == -1 || m->map.floor_color == -1)
+		error_mess("identifier missing\n");
+	map(argv[1], start, m);
+	m->map.x_elements_nb = max_len(argv[1], start);
+	m->rays = malloc(NB_RAYS * sizeof(t_ray));
+	m->mlx_ptr = mlx_init();
+	init(m);
+	m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "cub3d");
+	mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
+	mlx_hook(m->win_ptr, 2, 0, keys_down, m);
+	mlx_loop_hook(m->mlx_ptr, move, m);
+	mlx_hook(m->win_ptr, 3, 0, keys_up, m);
+	mlx_loop(m->mlx_ptr);
 }
