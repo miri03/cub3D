@@ -6,29 +6,11 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/31 19:12:47 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/31 21:49:45 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	draw_player(double x, double y, t_mlx *t, int size)
-{
-	int	i;
-	int	j;
-
-	i = x - size;
-	while (i < x + size)
-	{
-		j = y - size;
-		while (j < y + size)
-		{
-			my_mlx_pixel_put(t, i, j, PURPLE);
-			j++;
-		}
-		i++;
-	}
-}
 
 void	renderer(void *t)
 {

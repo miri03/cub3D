@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:38:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/31 19:05:08 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/07/31 21:50:01 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ void	draw_line(t_mlx	*m, double angle, double x, double y);
 void	draw_ray(t_mlx	*m, double angle, double x, double y);
 void	draw_walls(t_mlx	*m);
 void	draw_map(t_mlx	*m);
-void	draw_player(double x, double y, t_mlx *t, int size);
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
-void	draw_mini_map(t_mlx	*m);
 
 /*----------window_managment----------*/
 int		red_cross(void);
