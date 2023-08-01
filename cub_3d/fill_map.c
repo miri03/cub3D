@@ -104,6 +104,12 @@ void	fill_map(int fd, t_mlx *m)
 		else if (line)
 			m->map.map[i] = put_line(line, m);
 	}
+	i=0;
+	while (m->map.map[i])
+	{
+		printf("%s\n", m->map.map[i]);
+		i++;
+	}
 }
 
 void	map(char *file_path, int start, t_mlx *m)

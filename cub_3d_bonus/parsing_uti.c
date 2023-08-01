@@ -21,6 +21,7 @@ void	error_mess(char *msg)
 		write(2, msg, 1);
 		msg++;
 	}
+	ft_putstr_fd(RESET, 2);
 	exit(1);
 }
 

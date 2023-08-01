@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 		|| m->map.sky_color == -1 || m->map.floor_color == -1)
 		error_mess("identifier missing\n");
 	map(argv[1], start, m);
-	m->map.x_elements_nb = max_len(argv[1], start);
+	// m->map.x_elements_nb = max_len(argv[1], start);
 	m->rays = malloc(NB_RAYS * sizeof(t_ray));
 	m->mlx_ptr = mlx_init();
 	init(m);

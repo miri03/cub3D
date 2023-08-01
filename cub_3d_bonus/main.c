@@ -49,7 +49,7 @@ void	pars(t_mlx *m, char **argv)
 		|| m->map.sky_color == -1 || m->map.floor_color == -1)
 		error_mess("identifier missing\n");
 	map(argv[1], start, m);
-	m->map.x_elements_nb = max_len(argv[1], start);
+	// m->map.x_elements_nb = max_len(argv[1], start);  recheck this
 }
 
 int	main(int argc, char **argv)
