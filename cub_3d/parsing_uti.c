@@ -22,7 +22,6 @@ void	error_mess(char *msg)
 		msg++;
 	}
 	ft_putstr_fd(RESET, 2);
-	system("leaks cub3D");
 	exit(1);
 }
 
