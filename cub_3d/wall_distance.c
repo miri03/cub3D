@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 22:17:46 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/14 16:37:56 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:15:18 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,32 +53,3 @@ void	define_wall_distance(t_mlx *m, double angle)
 				m->rays[m->ray].x_vert_wall, m->rays[m->ray].y_vert_wall);
 	first_hit(m, vert_distance, horz_distance);
 }
-
-// void	define_wall_distance(double x, double y, t_mlx *m, double angle)
-// {
-// 	int		size;
-// 	int		l;
-// 	double	x2;
-// 	double	y2;
-
-// 	size = 0;
-// 	l = m->map.tile;
-// 	x2 = x + (cos(angle) * size);
-// 	y2 = y + (sin(angle) * size);
-// 	while (m->map.map[(int)(y2 / l)][(int)(x2 / l)] != '1')
-// 	{
-// 		size++;
-// 		x2 = x + (cos(angle) * size);
-// 		y2 = y + (sin(angle) * size);
-// 	}
-// 	m->rays[m->ray].xwall = x2;
-// 	m->rays[m->ray].ywall = y2;
-// 	m->rays->down = -1;
-// 	if (angle > 0 && angle < M_PI)
-// 		m->rays->down = 1;
-// 	m->rays->right = -1;
-// 	if (angle < 0.5 * M_PI || angle > 1.5 * M_PI)
-// 		m->rays->right = 1;
-// 	m->rays[m->ray].angle = normalize_angle(angle);
-// 	m->rays[m->ray].wall_distance = calc_distance(x, y, x2, y2);
-// }
