@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:05:01 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/29 22:36:19 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/01 19:31:55 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	open_map(char *map)
 	int	len;
 	int	fd;
 
-	fd = open(map, O_RDWR);
+	fd = open(map, O_RDONLY);
 	if (fd == -1)
 	{
 		ft_putstr_fd(MAG, 2);

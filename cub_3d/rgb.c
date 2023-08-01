@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 08:12:18 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/28 14:51:37 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/01 19:52:31 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,10 @@ void	check_rgb_uti(char **rgb, int i)
 
 	while (rgb[i])
 	{
-		printf("->%s\n", rgb[i]);
 		j = 0;
-		while ((rgb[i][j] && (rgb[i][j] == ' ' || rgb[i][j] == '\t')) ||
-				((rgb[i][j] && i == 0) && (rgb[i][j] == ' ' || rgb[i][j] == '\t'
-							|| rgb[0][j] == 'F' || rgb[0][j] == 'C')))
+		if (i == 0)
+			check_id(rgb[i], &j);
+		while (i && (rgb[i][j] && (rgb[i][j] == ' ' || rgb[i][j] == '\t')))
 			j++;
 		if (rgb[i][j])
 		{
@@ -63,7 +62,6 @@ void	check_rgb_uti(char **rgb, int i)
 			free(rgb[i]);
 			rgb[i] = n_rgb;
 		}
-		printf("=>%s\n", rgb[i]);
 		tt = ft_space_split(rgb[i], ' ', '\t');
 		if (tab_len(tt) != 1)
 			error_mess("Space in RGB\n");
@@ -85,11 +83,12 @@ int	check_rgb(char *str)
 	if (str[ft_strlen(str) - 2] == ',')
 		error_mess("RGB invalid\n");
 	rgb = ft_space_split(str, ',', '\n');
-	// printf("%d\n", tab_len(rgb));
 	check_rgb_uti(rgb, i);
 	while (rgb[i])
 	{
 		pars_rgb(rgb[i]);
+		if (ft_strlen(rgb[i]) > 4)
+			error_mess("RGB invalid\n");
 		color[i] = ft_atoi(rgb[i]);
 		if (color[i] < 0 || color[i] > 255)
 			error_mess("RGB invalid\n");

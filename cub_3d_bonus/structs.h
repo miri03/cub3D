@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 16:51:37 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/29 18:46:20 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/01 19:47:51 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,92 +38,92 @@
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	int		turn;
-	int		walk;
-	double	angle;
-	int		radius;
-	int		speed;
-	double	rot_speed;
-}	t_player;
+	double		x;
+	double		y;
+	int			turn;
+	int			walk;
+	double		angle;
+	int			radius;
+	int			speed;
+	double		rot_speed;
+}				t_player;
 
 typedef struct s_ray
 {
-	double	x;
-	double	y;
-	double	angle;
-	int		down;
-	int		right;
-	int		hit;
-	int		hit_door;
-	int		vert_hit_door;
-	int		horz_hit_door;
-	double	wall_distance;
-	double	xwall;
-	double	ywall;
-	double	x_horz_wall;
-	double	y_horz_wall;
-	double	x_vert_wall;
-	double	y_vert_wall;
-}	t_ray;
+	double		x;
+	double		y;
+	double		angle;
+	int			down;
+	int			right;
+	int			hit;
+	int			hit_door;
+	int			vert_hit_door;
+	int			horz_hit_door;
+	double		wall_distance;
+	double		xwall;
+	double		ywall;
+	double		x_horz_wall;
+	double		y_horz_wall;
+	double		x_vert_wall;
+	double		y_vert_wall;
+}				t_ray;
 
 typedef struct s_map
 {
-	int		x_elements_nb;
-	int		y_elements_nb;
-	int		tile;
-	char	**map;
-	void	*minimap;
-	int		x_minimap;
-	int		y_minimap;
-	void	*map_img;
-	int		floor_color;
-	int		sky_color;
-}	t_map;
+	int			x_elements_nb;
+	int			y_elements_nb;
+	int			tile;
+	char		**map;
+	void		*minimap;
+	int			x_minimap;
+	int			y_minimap;
+	void		*map_img;
+	int			floor_color;
+	int			sky_color;
+}				t_map;
 
 typedef struct s_keys
 {
-	int	w;
-	int	s;
-	int	a;
-	int	d;
-	int	left;
-	int	right;
-	int	space;
-}	t_keys;
+	int			w;
+	int			s;
+	int			a;
+	int			d;
+	int			left;
+	int			right;
+	int			space;
+}				t_keys;
 
 typedef struct s_textures
 {
-	void	*xpm_ptr;
-	char	*path;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		ht;
-	int		wt;
-}	t_texture;
+	void		*xpm_ptr;
+	char		*path;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	int			ht;
+	int			wt;
+}				t_texture;
 
 typedef struct s_mouse
 {
-	int	x;
-	int	y;
-}	t_mouse;
+	int			x;
+	int			y;
+}				t_mouse;
 
 typedef struct s_door
 {
 	t_texture	frames[12];
 	int			frame;
-}	t_door;
+}				t_door;
 
-typedef	struct s_weapon
+typedef struct s_weapon
 {
 	void		*img_ptr[5];
 	t_texture	t[5];
 	int			frame;
 	int			nb_frame;
-}	t_weapon;
+}				t_weapon;
 
 typedef struct mlx
 {
@@ -143,6 +143,6 @@ typedef struct mlx
 	t_texture	t[4];
 	t_door		door;
 	t_weapon	weapon;
-}	t_mlx;
+}				t_mlx;
 
 #endif

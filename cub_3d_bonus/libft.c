@@ -6,28 +6,11 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:40:04 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/27 15:47:46 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/01 19:46:11 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-
-void	comma(char *str)
-{
-	int	i;
-	int	comma;
-
-	i = 0;
-	comma = 0;
-	while (str[i])
-	{
-		if (str[i] == ',')
-			comma++;
-		i++;
-	}
-	if (comma != 2)
-		error_mess("RGB invalid\n");
-}
 
 int	ft_strcmp(char *s1, char *s2)
 {

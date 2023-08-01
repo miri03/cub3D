@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:15:23 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/29 21:36:23 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/01 19:46:41 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int				open_map(char *map);
 int				n_line(char *line);
 void			map_starting(int fd, int start);
 void			comma(char *str);
+void			check_id(char *rgb, int *i);
 
 // ----- libft ----- //
 char			**ft_split(char const *s, char c);
