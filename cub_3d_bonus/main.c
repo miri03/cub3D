@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 18:51:34 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:45:55 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,21 @@ int	main(int argc, char **argv)
 {
 	t_mlx	*m;
 
-	if (argc == 2)
-	{
-		m = malloc(sizeof(t_mlx));
-		init_pars(m);
-		pars(m, argv);
-		m->rays = malloc(NB_RAYS * sizeof(t_ray));
-		m->mlx_ptr = mlx_init();
-		init(m);
-		m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH,
-				WIN_HEIGHT, "cub3d");
-		weapon(m);
-		mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
-		mlx_hook(m->win_ptr, 2, 0, keys_down, m);
-		mlx_hook(m->win_ptr, 6, 0, mouse, m);
-		mlx_loop_hook(m->mlx_ptr, move, m);
-		mlx_hook(m->win_ptr, 3, 0, keys_up, m);
-		mlx_loop(m->mlx_ptr);
-	}
-	else
-		error_mess("no\n");
+	if (argc != 2)
+		error_mess("Wrong number of arguments\n");
+	m = malloc(sizeof(t_mlx));
+	init_pars(m);
+	pars(m, argv);
+	m->rays = malloc(NB_RAYS * sizeof(t_ray));
+	m->mlx_ptr = mlx_init();
+	init(m);
+	m->win_ptr = mlx_new_window(m->mlx_ptr, WIN_WIDTH,
+			WIN_HEIGHT, "cub3d");
+	weapon(m);
+	mlx_hook(m->win_ptr, 17, 0, red_cross, 0);
+	mlx_hook(m->win_ptr, 2, 0, keys_down, m);
+	mlx_hook(m->win_ptr, 6, 0, mouse, m);
+	mlx_loop_hook(m->mlx_ptr, move, m);
+	mlx_hook(m->win_ptr, 3, 0, keys_up, m);
+	mlx_loop(m->mlx_ptr);
 }
