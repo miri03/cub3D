@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 10:56:20 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/02 15:54:01 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	renderer(void *t)
 	t_mlx	*m;
 
 	m = t;
+	// printf("%d\n", m->map.y_elements_nb);
 	m->map.map_img = mlx_new_image(m->mlx_ptr, (m->map.x_elements_nb - 1)
 			* m->map.tile,
 			(m->map.y_elements_nb - 1) * m->map.tile);

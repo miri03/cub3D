@@ -8,7 +8,7 @@ CFLAGS	= -Wall -Wextra -Werror -pthread
 
 # LFLAGS	=	-L /usr/X11/lib -lmlx -framework OpenGL -framework AppKit
 
-LFLAGS	=	-lmlx -framework OpenGL -framework AppKit #-fsanitize=address -g3
+LFLAGS	=	-lmlx -framework OpenGL -framework AppKit -fsanitize=address -g3
 
 NAME	= cub3D
 
@@ -29,11 +29,11 @@ bonus	: $(BNAME)
 
 $(NAME) : $(OBJS) Makefile
 		make -C ./mlx
-		$(CC) $(CFLAGS) $(MLX_LIB)  $(SRCS) $(LFLAGS) -o $(NAME)
+		$(CC) $(CFLAGS) $(MLX_LIB) $(SRCS) $(LFLAGS) -o $(NAME)
 
 $(BNAME) : $(BOBJS) Makefile
 		make -C ./mlx
-		$(CC) $(CFLAGS) $(MLX_LIB)  $(BSRCS) $(LFLAGS) -o $(BNAME)
+		$(CC) $(CFLAGS) $(MLX_LIB) $(BSRCS) $(LFLAGS) -o $(BNAME)
 
 clean	:
 		make clean -C ./mlx

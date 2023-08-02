@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:35:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 21:38:01 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:01:00 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_square(int x, int y, t_mlx *m, int color)
 	}
 }
 
-void	draw_player(double x, double y, t_mlx *t, int size)
+void	draw_player(double x, double y, t_mlx *m, int size)
 {
 	int	i;
 	int	j;
@@ -43,7 +43,7 @@ void	draw_player(double x, double y, t_mlx *t, int size)
 		j = y - size;
 		while (j < y + size)
 		{
-			my_mlx_pixel_put(t, i, j, 0x55aa99FF);
+			my_mlx_pixel_put2(m, i, j, 0x55aa99FF);
 			j++;
 		}
 		i++;
@@ -62,7 +62,7 @@ void	draw_ray(t_mlx *m, double angle, double x, double y)
 	x2 = x + cos(angle) * size;
 	y2 = y + sin(angle) * size;
 	while (size <= 25 && m->map.map[y2 / l][x2 / l] != '1' && m->map.map[y2
-		/ l][x2 / l] != 'D')
+		/ l][x2 / l] != 'D' && m->map.map[y2 / l][x2 / l] != 'X')
 	{
 		my_mlx_pixel_put(m, x2, y2, 0x99aa99FF);
 		size++;
@@ -78,12 +78,12 @@ void	draw_map2(int j, t_mlx *m, int size)
 	i = (m->p.x / m->map.tile) - 3;
 	if (i < 0)
 		i = 0;
-	while (i < m->map.x_elements_nb - 1)
+	while (i < m->map.x_elements_nb)
 	{
-		if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
-			|| m->map.map[j][i] == 'X')
-			draw_square(i * size, j * size, m, 0xFFFFFFFF);
-		else
+		// if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
+		// 	|| m->map.map[j][i] == 'X')
+		// 	draw_square(i * size, j * size, m, 0xFFFFFFFF);
+		// else
 		{
 			if (m->map.map[j][i] != '1' && m->map.map[j][i] != 'D')
 				draw_square(i * size, j * size, m, 0x55FFFFFF);
@@ -100,11 +100,10 @@ void	draw_map(t_mlx *m)
 	int	size;
 
 	size = m->map.tile;
-	j = 0;
 	j = (m->p.y / m->map.tile) - 3;
 	if (j < 0)
 		j = 0;
-	while (j < m->map.y_elements_nb - 1)
+	while (j < m->map.y_elements_nb)
 	{
 		draw_map2(j, m, size);
 		j++;
