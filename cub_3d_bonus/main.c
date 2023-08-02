@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 15:54:01 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:30:44 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	renderer(void *t)
 	t_mlx	*m;
 
 	m = t;
-	// printf("%d\n", m->map.y_elements_nb);
-	m->map.map_img = mlx_new_image(m->mlx_ptr, (m->map.x_elements_nb - 1)
+	m->map.map_img = mlx_new_image(m->mlx_ptr, m->map.x_elements_nb
 			* m->map.tile,
-			(m->map.y_elements_nb - 1) * m->map.tile);
+			m->map.y_elements_nb * m->map.tile);
 	m->addr = mlx_get_data_addr(m->map.map_img, &m->bits_per_pixel,
 			&m->line_length, &m->endian);
 	draw_map(m);

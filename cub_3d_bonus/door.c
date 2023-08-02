@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:16:14 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/07/30 20:22:31 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:00:57 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	door(t_mlx *m)
 	pthread_t	*door;
 
 	door = (pthread_t *)malloc(sizeof(pthread_t));
-	if (m->rays[NB_RAYS / 2].hit_door)
+	if (m->rays[NB_RAYS / 2].hit_door && !m->door.frame)
 	{
 		pthread_create(door, 0, open_door, m);
 		pthread_detach(*door);

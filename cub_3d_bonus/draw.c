@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:35:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 16:01:00 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 16:44:52 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ void	draw_map2(int j, t_mlx *m, int size)
 		i = 0;
 	while (i < m->map.x_elements_nb)
 	{
-		// if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
-		// 	|| m->map.map[j][i] == 'X')
-		// 	draw_square(i * size, j * size, m, 0xFFFFFFFF);
-		// else
+		if (i > (m->p.x / m->map.tile) + 3 || j > (m->p.y / m->map.tile) + 3
+			|| m->map.map[j][i] == 'X')
+			draw_square(i * size, j * size, m, 0xFFFFFFFF);
+		else
 		{
 			if (m->map.map[j][i] != '1' && m->map.map[j][i] != 'D')
 				draw_square(i * size, j * size, m, 0x55FFFFFF);
@@ -107,6 +107,7 @@ void	draw_map(t_mlx *m)
 	{
 		draw_map2(j, m, size);
 		j++;
+	// printf("j: %d\n", j);		
 	}
 	draw_player(m->p.x, m->p.y, m, size / 15);
 	draw_ray(m, m->p.angle, m->p.x, m->p.y);
