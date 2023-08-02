@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:16:14 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 17:35:38 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 18:28:16 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,17 @@ void	*close_door(void *p)
 	size = 0;
 	x = m->p.x + (cos(m->p.angle) * size);
 	y = m->p.y + (sin(m->p.angle) * size);
-	while (x >= 0 && x <= WIN_WIDTH && y >= 0 && y <= WIN_HEIGHT
+	// printf("here\n");
+	while (x >= 0 && x < m->map.x_elements_nb * m->map.tile && y >= 0
+		&& y < m->map.y_elements_nb * m->map.tile
 		&& m->map.map[(int)y / m->map.tile][(int)x / m->map.tile] != 'd')
 	{
 		size++;
 		x = m->p.x + (cos(m->p.angle) * size);
 		y = m->p.y + (sin(m->p.angle) * size);
 	}
-	if (x >= 0 && x <= WIN_WIDTH && y >= 0 && y <= WIN_HEIGHT)
+	if (x >= 0 && x < m->map.x_elements_nb * m->map.tile && y >= 0
+		&& y < m->map.y_elements_nb * m->map.tile)
 		m->map.map[(int)y / m->map.tile][(int)x / m->map.tile] = 'D';
 	return (0);
 }
