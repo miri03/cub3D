@@ -6,7 +6,7 @@
 /*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:35:44 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 16:44:52 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 17:35:50 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void	draw_map(t_mlx *m)
 	{
 		draw_map2(j, m, size);
 		j++;
-	// printf("j: %d\n", j);		
 	}
 	draw_player(m->p.x, m->p.y, m, size / 15);
 	draw_ray(m, m->p.angle, m->p.x, m->p.y);

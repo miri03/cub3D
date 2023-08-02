@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 09:44:14 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/02 17:35:09 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	main(int argc, char **argv)
 		|| m->map.sky_color == -1 || m->map.floor_color == -1)
 		error_mess("identifier missing\n");
 	map(argv[1], start, m);
-	// m->map.x_elements_nb = max_len(argv[1], start);
 	m->rays = malloc(NB_RAYS * sizeof(t_ray));
 	m->mlx_ptr = mlx_init();
 	init(m);

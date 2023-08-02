@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:16:14 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 17:04:42 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/02 17:35:38 by hhattaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	door(t_mlx *m)
 {
 	pthread_t	door;
 
-	// door = (pthread_t *)malloc(sizeof(pthread_t));
 	if (m->rays[NB_RAYS / 2].hit_door && !m->door.frame)
 	{
 		pthread_create(&door, 0, open_door, m);
@@ -101,5 +100,4 @@ void	door(t_mlx *m)
 		pthread_create(&door, 0, close_door, m);
 		pthread_detach(door);
 	}
-	// free(door);
 }
