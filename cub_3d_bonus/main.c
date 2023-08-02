@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 20:48:13 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/01 17:40:23 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:56:20 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	pars(t_mlx *m, char **argv)
 	int	fd;
 	int	start;
 
+	int i = 0;
+
 	fd = open_map(argv[1]);
 	start = textures(fd, m);
 	height_len(fd, m);
@@ -49,7 +51,13 @@ void	pars(t_mlx *m, char **argv)
 		|| m->map.sky_color == -1 || m->map.floor_color == -1)
 		error_mess("identifier missing\n");
 	map(argv[1], start, m);
-	// m->map.x_elements_nb = max_len(argv[1], start);  recheck this
+	// m->map.x_elements_nb = max_len(argv[1], start); // recheck this
+	printf("%d %d\n", m->map.x_elements_nb, m->map.y_elements_nb);
+	while (m->map.map[i])
+	{
+		printf("%s\n",m->map.map[i]);
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)

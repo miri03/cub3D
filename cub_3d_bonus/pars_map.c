@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 14:42:36 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/30 16:55:13 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/02 10:46:59 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,8 @@ void	valid_line(char *line, t_mlx *m, int index)
 			|| m->map.map[index + 1][i] == 'X'))
 			error_mess("not surrounded by walls\n");
 		if ((line[i] == '0' || line[i] == 'D' || start_pos(line[i]))
-			&& (line[i - 1] == 'X' || line[i + 1] == 'X' || line[i+1] == '\0'))
+			&& (line[i - 1] == 'X' || line[i + 1] == 'X'
+				|| line[i + 1] == '\0'))
 			error_mess("Not surrounded by walls\n");
 		i++;
 	}

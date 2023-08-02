@@ -6,7 +6,7 @@
 /*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:31:35 by meharit           #+#    #+#             */
-/*   Updated: 2023/07/28 15:04:10 by meharit          ###   ########.fr       */
+/*   Updated: 2023/08/02 10:49:30 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,6 @@ void	fill_map(int fd, t_mlx *m)
 		else if (line)
 			m->map.map[i] = put_line(line, m);
 	}
-	// i=0;
-	// while (m->map.map[i])
-	// {
-	// 	printf("%s\n", m->map.map[i]);
-	// 	i++;
-	// }
 }
 
 void	map(char *file_path, int start, t_mlx *m)
