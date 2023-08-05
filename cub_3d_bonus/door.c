@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhattaki <hhattaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: meharit <meharit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:16:14 by hhattaki          #+#    #+#             */
-/*   Updated: 2023/08/02 18:28:16 by hhattaki         ###   ########.fr       */
+/*   Updated: 2023/08/03 13:58:26 by meharit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	*close_door(void *p)
 	size = 0;
 	x = m->p.x + (cos(m->p.angle) * size);
 	y = m->p.y + (sin(m->p.angle) * size);
-	// printf("here\n");
 	while (x >= 0 && x < m->map.x_elements_nb * m->map.tile && y >= 0
 		&& y < m->map.y_elements_nb * m->map.tile
 		&& m->map.map[(int)y / m->map.tile][(int)x / m->map.tile] != 'd')
